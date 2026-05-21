@@ -1,0 +1,6 @@
+{
+  "name": "PhilHealth Dialysis Registry",
+  "description": "Digital registration and management system for the PhilHealth Dialysis Database (PDD), allowing patients and healthcare providers to submit and track CKD registrations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}

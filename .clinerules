@@ -1,0 +1,44 @@
+# Cline / Roo-Cline System Instructions & Rules
+
+You are acting as an expert agentic AI coding assistant in this repository. Follow these system-level constraints and guidelines whenever performing tasks.
+
+---
+
+## 📂 Repository Context
+- This repository manages the **PhilHealth Patient Dialysis Database (PDD) Registration Portal**.
+- All React, Vite, and Tailwind v4 source code is inside the **`dialysis/`** subfolder.
+- The active working branch is **`PDFEdited`**.
+
+---
+
+## 🛠️ Tool & Command Execution Rules
+
+### 1. Working Directory Constraint
+- **NEVER** run `npm` or development commands in the workspace root. Always execute them inside the `dialysis/` subdirectory:
+  - Correct: `Cwd: "c:/Users/marcj/HI191_PhilHealthDialysis/dialysis"`
+  - Commands should be run as: `npm install`, `npm run dev`, or `npm run build` with the correct `Cwd`.
+
+### 2. State & Persistence Integrity
+- Central types are maintained in `dialysis/src/types.ts`. Avoid local typings unless it is highly isolated.
+- The local records are saved in client storage (`localStorage` key: `pdd_registrations`). Keep state structures synchronized across the form, table, and detail components.
+
+---
+
+## 🎨 Technology Constraints & Design Principles
+
+1.  **Tailwind CSS v4 & Styling**:
+    - Use the modern Tailwind CSS v4 syntax and utilities.
+    - Leverage standard emerald + yellow/gold theme assets and color tokens.
+    - Keep component layouts premium, responsive, and glassmorphic using smooth transitions and hover micro-animations.
+2.  **TypeScript Discipline**:
+    - Write explicit interfaces and prop-types.
+    - Avoid `any` type casting. Keep strict TypeScript compilation passing.
+3.  **PDF Overlay Layouts (`pdf-lib`)**:
+    - Do not break coordinates in `exportPddPdf.ts`. Coordinate changes must be visually tested using the sandbox debugger component (`PdfLayoutDebugger.tsx`).
+
+---
+
+## 📝 Rules of Engagement
+- **Full implementation**: Never leave incomplete implementation stubs, comments, or mock elements.
+- **Maintain comments**: Preserve any existant license headers or complex structural inline documentation.
+- **Verbose response**: Explain code adjustments clearly using markdown file links pointing to modified segments.

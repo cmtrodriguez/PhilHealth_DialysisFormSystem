@@ -1,0 +1,43 @@
+# Windsurf Rules for PhilHealth Patient Dialysis Database (PDD)
+
+Welcome to the PhilHealth Dialysis Database Portal workspace rules. Use these rules to guide coding actions and coordinate file edits in this project.
+
+---
+
+## 🗺️ Project Navigation & Codebase Context
+- **Root Directory**: `c:/Users/marcj/HI191_PhilHealthDialysis`
+- **Application Directory**: `dialysis/`
+- **Active Git Branch**: `PDFEdited`
+- **Key Modules**:
+  - `dialysis/src/types.ts`: Typings and enum structures.
+  - `dialysis/src/App.tsx`: App wrapper, routing, landing sections, login/signup forms.
+  - `dialysis/src/utils/exportPddPdf.ts`: Core PDF field overlays and coordinates mapper.
+  - `dialysis/src/components/`: Dashboard widgets, dynamic registration form sections, applications manager, debugger workspaces.
+
+---
+
+## ⚡ Framework & Development Conventions
+
+### 1. Tailwind CSS v4 Utility Rules
+- This project leverages **Tailwind CSS v4** coupled with `@tailwindcss/vite`.
+- Styling must follow the premium, medical emerald theme:
+  - Base theme: Emerald shades (`text-emerald-900`, `bg-emerald-950`, `bg-emerald-50`, `border-emerald-200`).
+  - Highlight Accent: Gold/Yellow shade (`bg-yellow-400`, `text-emerald-950`).
+- Use the `cn(...)` utility inside `dialysis/src/lib/utils.ts` for styling conditional variables.
+
+### 2. PDF coordinates (`pdf-lib`)
+- Keep coordinate references mapped exactly within standard bounds.
+- Use `PdfLayoutDebugger.tsx` for validating coordinates before committing modifications in `exportPddPdf.ts`.
+
+### 3. Component & State Discipline
+- Ensure state routing in `App.tsx` corresponds to client tabs.
+- Always match form changes with `types.ts` structures. No `any` TS types allowed.
+- Wrap dynamic portal components with `<motion.div>` from `motion/react` to preserve responsive transitions.
+
+---
+
+## ⚙️ Workflow Commands
+Execute all development or build actions within the **`dialysis/`** subfolder:
+- Install Dependencies: `npm install`
+- Local Dev Server: `npm run dev`
+- Build Output: `npm run build`

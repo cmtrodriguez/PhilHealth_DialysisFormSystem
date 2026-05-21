@@ -1,0 +1,47 @@
+# Cursor Rules for PhilHealth Patient Dialysis Database (PDD) Portal
+
+You are an expert software developer and UI/UX designer assisting with the PhilHealth Dialysis Registration Portal project. Follow these guidelines strictly on every request.
+
+---
+
+## 🧭 Project Architecture Quick Reference
+- **Core Folder**: `dialysis/` containing the Vite + React app.
+- **Main Files**:
+  - `dialysis/src/types.ts`: Central type schemas (`PDDRegistration`, address, HD/PD types).
+  - `dialysis/src/App.tsx`: Main entry view router, landing page, login/signup portals, and localStorage management.
+  - `dialysis/src/utils/exportPddPdf.ts`: pdf-lib engine which overlays patient data onto the template PDF.
+  - `dialysis/src/components/`: Modular views (`Dashboard.tsx`, `RegistrationForm.tsx`, `RecordsList.tsx`, `EditRegistrationModal.tsx`, `PdfLayoutDebugger.tsx`).
+
+---
+
+## 🛠️ Technology-Specific Guidelines
+
+### 1. Tailwind CSS v4 & Styling
+- This project runs **Tailwind CSS v4** via the `@tailwindcss/vite` plugin.
+- **Theme Constraints**: Use the emerald, white, and yellow/gold palette to maintain a premium medical aesthetic.
+  - Primary color: `emerald` (`text-emerald-900`, `bg-emerald-950`, `hover:bg-emerald-800`).
+  - Accent color: `yellow`/`gold` (`bg-yellow-400`, `text-emerald-950`).
+  - Border style: Thin and refined (`border-slate-200/slate-100`).
+  - Rounded style: High radius (`rounded-2xl`, `rounded-[2rem]`).
+- **Conditional Styling**: Use the `cn(...)` utility from `src/lib/utils` for merging Tailwind classes to prevent layout compilation overlap.
+- **Animations**: Leverage `motion/react` (Framer Motion) for page transitions, tab switches, and modal actions. Use clean, snappy micro-interactions.
+
+### 2. TypeScript and Schema Discipline
+- **Strict Types**: Always define correct types and props interface for components. Absolutely no `any`.
+- **Schema Alignment**: Any modification of the `PDDRegistration` fields in `src/types.ts` MUST be duplicated in:
+  - `RegistrationForm.tsx` (the patient submission form)
+  - `EditRegistrationModal.tsx` (the record editor)
+  - `exportPddPdf.ts` (the PDF field mappings)
+
+### 3. PDF Overlay engine (`pdf-lib`)
+- PDF fields are aligned to a fixed canvas coordinate system (`612 x 792`).
+- Do not adjust coordinates inside `exportPddPdf.ts` without validating the positioning in `PdfLayoutDebugger.tsx` first.
+- Always implement split-date algorithms when mapping ISO dates (e.g. birthday, signature dates) to separate box indexes.
+
+---
+
+## 🤖 Code Quality & Behavior
+- **No placeholders**: Never write `// TODO: implement later` or simple mock elements. Build robust, functional code blocks.
+- **Keep styles scoped**: Do not pollute `index.css` with ad-hoc classes. Write standard Tailwind CSS classes directly in the components.
+- **Keep clean history**: Write concise, meaningful Git commit descriptions. Follow branch `PDFEdited` for active code edits.
+- **Preserve Comments**: Do not delete existing license tags, comments, or documentation block headers unless instructed.
