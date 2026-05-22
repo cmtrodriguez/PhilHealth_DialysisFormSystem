@@ -1,5 +1,6 @@
 # PhilHealth Dialysis Form System
-A modern web-based patient portal and records management system for PhilHealth dialysis registrations and claims processing.
+A modern web-based patient portal and records management system for PhilHealth dialysis registrations and claims processing. This project aims to streamline PhilHealth dialysis patient registration, monitoring, and claims management through a centralized digital platform.
+
 
 ## Features
 * Patient registration and account management
@@ -33,6 +34,3 @@ npm run build
 
 ## Environment Variables
 ### Make sure there is a .env file in the project root directory.
-
-## Purpose
-This project aims to streamline PhilHealth dialysis patient registration, monitoring, and claims management through a centralized digital platform.
